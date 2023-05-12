@@ -1,0 +1,17 @@
+.shop {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin: 10px 10px 10px 30px;
+}
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.shopTitle {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+}
