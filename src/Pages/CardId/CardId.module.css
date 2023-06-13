@@ -1,0 +1,13 @@
+.card {
+  background-color: #f9f5ed;
+  height: 200px;
+  width: 400px;
+  margin-left: 500px;
+  margin-top: 50px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+}
+.text {
+  margin-top: 70px;
+  margin-left: 25px;
+}

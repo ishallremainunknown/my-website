@@ -1,6 +1,6 @@
 export type GraduationCap = {
-  id: number;
+  id?: string;
   productname: string;
-  price: string;
-  productImage: string;
+  price: number;
+  productImage: string | undefined;
 };

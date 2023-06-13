@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import addItem from "./webpage-slice";
+import addItem from "./shoppingCart-slice";
+import addCounty from "./county-slice";
+import authReducer from "../Redux/catch-token";
 const store = configureStore({
-  reducer: { additem: addItem },
+  reducer: { additem: addItem, county: addCounty, auth: authReducer },
 });
 export default store;
 

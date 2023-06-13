@@ -1,0 +1,93 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.inputs {
+  position: relative;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  width: 400px; */
+
+  width: 400px;
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.input {
+  width: 100px;
+  margin-bottom: 20px;
+}
+.text {
+  width: 250px;
+  background-color: #f9f5ed;
+  padding-left: 30px;
+  /* margin-left: 40px;
+  background-color: #f9f5ed;
+  width: 300px;
+  padding-left: 90px; */
+  /* margin-left: 0px;
+  background-color: #f9f5ed;
+  width: 240px;
+  padding-left: 150px; */
+}
+
+.individualInput {
+  height: 20px;
+  width: 250px;
+}
+
+.selectInput {
+  height: 30px;
+  padding-left: 20px;
+  width: 255px;
+
+  margin-bottom: 10px;
+}
+.selectInput:hover {
+  cursor: pointer;
+  outline: none;
+  border: 2px solid black;
+}
+
+p,
+label {
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+.selectPayment {
+  width: 260px;
+  height: 100px;
+}
+
+.first {
+  margin-bottom: 10px;
+}
+.nextButton {
+  /* top: 55rem;
+  left: 25rem;
+  position: absolute; */
+  margin-left: 70px;
+  width: 100px;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.nextButton:hover {
+  background-color: #f9f5ed;
+  color: black;
+  cursor: pointer;
+  border: none;
+}

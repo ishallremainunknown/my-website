@@ -1,8 +1,14 @@
 import s from "./Shop.module.css";
 import { Products } from "../../Components/Core/Constants/Products";
 import Product from "../../Components/Product/Product";
+import usePicsToFirebase from "../../Hooks/useFirebasePictures";
 
 const Shop = () => {
+  // const uploadAll = async () => {
+  //   Products.forEach((product) => {
+  //     uploadPictures(product);
+  //   });
+  // };
   return (
     <div className={s.shop}>
       <div className={s.shopTitle}>

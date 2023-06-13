@@ -29,7 +29,18 @@
   padding: 5px 10px 5px 10px;
 }
 .button:hover {
-  background-color: black;
-  color: white;
+  background-color: #f9f5ed;
+  color: black;
   cursor: pointer;
+  border: none;
+}
+
+.numberOnCart {
+  height: 16px;
+  width: 16px;
+  border-radius: 100px;
+  background-color: red;
+  position: absolute;
+  margin-left: 825px;
+  margin-top: -140px;
 }

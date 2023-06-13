@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 30px;
+  border-bottom-style: solid;
+  border-color: gray;
+  border-width: 2px;
+}
+.title {
+  font-size: 20px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.price {
+  font-size: 20px;
+}
+.button {
+  height: 40px;
+  width: 150px;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+.button:hover {
+  background-color: #f9f5ed;
+  color: black;
+  cursor: pointer;
+  border: none;
+}
+.total {
+  font-size: 20px;
+}

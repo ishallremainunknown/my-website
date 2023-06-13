@@ -1,9 +1,10 @@
 import s from "./Product.module.css";
-import { useState } from "react";
-import { addItemToCart } from "../../Redux/webpage-slice";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { addItemToCart, increase } from "../../Redux/shoppingCart-slice";
+import { useDispatch, useSelector } from "react-redux";
 import { Products } from "../Core/Constants/Products";
 import { GraduationCap } from "../Core/type";
+import { StoreType } from "../../Redux/store";
 
 type ComponentProps = {
   product: GraduationCap;
@@ -12,27 +13,37 @@ const Product = (props: ComponentProps) => {
   const dispatch = useDispatch();
   //const { id, productImage, price, productname } = props;
 
+  const stateItemList = useSelector((state: StoreType) => state.additem.itemList);
+
   const [cartItem, setCartItem] = useState<GraduationCap>();
   const [isAddedToCart, setIsAddedToCart] = useState<boolean>(false);
 
-  //const [addedToCart, setAddedToCart] = useState<boolean>(false);
-
   const [count, setCount] = useState(0);
 
-  const increase = () => {
-    setCount(count + 1);
+  //const [cartCount, setCartCount] = useState<number>(1);
+  const [sum, setSum] = useState<number>(0);
+
+  // const cartCountIncrease = () => {
+  //   setCartCount(cartCount + 1);
+  //console.log(cartCount);
+  // };
+
+  useEffect(() => {
+    const foundItem = stateItemList.find((item) => {
+      return item.item.id === props.product.id;
+    });
+    if (foundItem) {
+      setCount(foundItem.quantity);
+    } else {
+      setCount(0);
+    }
+  }, [stateItemList, props.product]);
+
+  const increase1 = () => {
     setCartItem(cartItem);
     if (cartItem) {
       dispatch(addItemToCart(cartItem));
     }
-  };
-
-  const getDefaultCart = () => {
-    // let cart = {};
-    // for (let i = 1; i < Products.length + 1; i++) {
-    //   cart[i] = 0;
-    // }
-    // return cart;
   };
 
   const addToCart = () => {
@@ -40,26 +51,29 @@ const Product = (props: ComponentProps) => {
     setIsAddedToCart(true);
   };
   return (
-    <div className={s.container}>
-      <div>
-        <img style={{ height: "300px", width: "300px" }} src={props.product.productImage} />
-      </div>
-      <div>{props.product.id}</div>
-      <div className={s.title}>
-        <b>Name: {props.product.productname}</b>
-      </div>
-      <div className={s.price}>Price: {props.product.price}</div>
+    <>
+      <div className={s.container}>
+        <div>
+          <img style={{ height: "300px", width: "300px" }} src={props.product.productImage} />
+        </div>
 
-      <button
-        className={s.button}
-        onClick={() => {
-          addToCart();
-          increase();
-        }}
-      >
-        Add To Cart {count !== 0 && `(${count})`}
-      </button>
-    </div>
+        <div className={s.title}>
+          <b>Name: {props.product.productname}</b>
+        </div>
+        <div className={s.price}>Price: {props.product.price} lei</div>
+
+        <button
+          className={s.button}
+          onClick={() => {
+            addToCart();
+            increase();
+            // cartCountIncrease();
+          }}
+        >
+          Add To Cart {count !== 0 && `(${count})`}
+        </button>
+      </div>
+    </>
   );
 };
 export default Product;
