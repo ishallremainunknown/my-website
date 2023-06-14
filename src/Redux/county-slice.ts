@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { County } from "../Components/Core/Constants/CountyType";
+import type { County } from "../Components/Core/Types/CountyType";
 
 interface CountyState {
   counties: County[];

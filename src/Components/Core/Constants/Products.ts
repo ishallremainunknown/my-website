@@ -1,4 +1,4 @@
-import { GraduationCap } from "../type";
+import { GraduationCap } from "../Types/GraduationCapType";
 
 export const Products: GraduationCap[] = [
   {

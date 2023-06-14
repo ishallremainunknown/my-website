@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { addItemToCart, increase } from "../../Redux/shoppingCart-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { Products } from "../Core/Constants/Products";
-import { GraduationCap } from "../Core/type";
+import { GraduationCap } from "../Core/Types/GraduationCapType";
 import { StoreType } from "../../Redux/store";
 
 type ComponentProps = {

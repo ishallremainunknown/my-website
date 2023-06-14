@@ -1,5 +1,5 @@
 import { addDoc, collection, getDocs, orderBy, query } from "firebase/firestore";
-import { County } from "../Components/Core/Constants/CountyType";
+import { County } from "../Components/Core/Types/CountyType";
 import { db } from "../Firebase/firebase-config";
 
 const useFirebaseWeb = () => {

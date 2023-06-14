@@ -4,7 +4,7 @@ import AppInput from "../../Components/Input/Input";
 import usePicsToFirebase from "../../Hooks/useFirebasePictures";
 import { Products } from "../../Components/Core/Constants/Products";
 
-import { GraduationCap } from "../../Components/Core/type";
+import { GraduationCap } from "../../Components/Core/Types/GraduationCapType";
 
 type Item = {
   title: string;

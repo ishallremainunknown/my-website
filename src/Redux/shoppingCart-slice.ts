@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { GraduationCap } from "../Components/Core/type";
-import { County } from "../Components/Core/Constants/CountyType";
+import { GraduationCap } from "../Components/Core/Types/GraduationCapType";
+import { County } from "../Components/Core/Types/CountyType";
 import { useState } from "react";
 import { act } from "react-dom/test-utils";
 
@@ -73,7 +73,12 @@ export const ShoppingCartSlice = createSlice({
 
       state.itemList.splice(index, 1);
 
-      state.numberOfAddedItems = state.itemList.length;
+      let sum = 0;
+      state.itemList.forEach((item) => {
+        sum = sum + item.quantity;
+      });
+
+      state.numberOfAddedItems = sum;
     },
 
     getItemsFromCart: (state, action: PayloadAction<GraduationCap>) => {

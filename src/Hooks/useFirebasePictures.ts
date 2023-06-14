@@ -1,5 +1,5 @@
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { GraduationCap } from "../Components/Core/type";
+import { GraduationCap } from "../Components/Core/Types/GraduationCapType";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
 

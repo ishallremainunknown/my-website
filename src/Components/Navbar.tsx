@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase-config";
 import { useSelector } from "react-redux";
 import { StoreType } from "../Redux/store";
@@ -15,6 +15,8 @@ const Navbar = () => {
   const jumpTo = () => {
     navigate("/upload");
   };
+
+  //console.log(numberOnCart);
 
   const handleLogout = () => {
     signOut(auth)
@@ -34,8 +36,10 @@ const Navbar = () => {
       <div className={s.links}>
         <Link to="/">Shop</Link>
         <Link to="/cart">
-          <ShoppingCart size={32} />
-          {numberOnCart !== 0 && <div className={s.numberOnCart}>{numberOnCart}</div>}
+          <div className={s.shoppingCart}>
+            <ShoppingCart size={32} />
+            {numberOnCart !== 0 && <div className={s.numberOnCart}>{numberOnCart}</div>}
+          </div>
         </Link>
 
         {token && (

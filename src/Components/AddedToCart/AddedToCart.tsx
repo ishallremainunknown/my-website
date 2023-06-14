@@ -1,5 +1,5 @@
 import s from "./AddedToCart.module.css";
-import { GraduationCap } from "../Core/type";
+import { GraduationCap } from "../Core/Types/GraduationCapType";
 import { deleteItem, addItemToCart, decreaseQuantity, CartItem } from "../../Redux/shoppingCart-slice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,6 +14,7 @@ const AddedToCart = (props: ComponentProps) => {
 
   const numberOfSameItems = useSelector((state: StoreType) => state.additem.numberOfAddedItems);
   const stateItemList = useSelector((state: StoreType) => state.additem.itemList);
+
   useEffect(() => {
     //instantRemove();
   });
@@ -31,7 +32,9 @@ const AddedToCart = (props: ComponentProps) => {
     const value = stateItemList.find((item) => {
       return item.item.id === props.cartItem.item.id;
     });
+
     console.log(value);
+    console.log(stateItemList);
     if (value) {
       dispatch(deleteItem(value));
     }
@@ -69,6 +72,7 @@ const AddedToCart = (props: ComponentProps) => {
           <button onClick={decrease}>-</button>
 
           <input
+            className={s.input}
             style={{ width: "40px" }}
             onChange={() => {
               addItem(), decrease();
@@ -76,7 +80,9 @@ const AddedToCart = (props: ComponentProps) => {
             }}
             value={props.cartItem.quantity}
           />
-          <button onClick={addItem}>+</button>
+          <button className={s.plussButton} onClick={addItem}>
+            +
+          </button>
         </div>
         <button className={s.button} onClick={removeItem}>
           Remove from Cart

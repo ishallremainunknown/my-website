@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 // import Product from "../../Components/Product/Product";
 // import { useState, useEffect } from "react";
 // import { getItemsFromCart } from "../../Redux/webpage-slice";
-import { GraduationCap } from "../../Components/Core/type";
+import { GraduationCap } from "../../Components/Core/Types/GraduationCapType";
 import { useSelector } from "react-redux";
 import { StoreType } from "../../Redux/store";
 //import { addPrices } from "../../Redux/webpage-slice";
