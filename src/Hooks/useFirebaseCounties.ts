@@ -11,7 +11,7 @@ const useFirebaseWeb = () => {
   };
   const getCounties = async () => {
     const countyCollectionRef = collection(db, "county");
-    const q = query(countyCollectionRef, orderBy("county", "asc"));
+    const q = query(countyCollectionRef, orderBy("name", "asc"));
     const data = await getDocs(q);
     const filteredData = data.docs.map((doc) => ({
       ...doc.data(),

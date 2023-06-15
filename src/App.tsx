@@ -13,6 +13,7 @@ import Login from "./Pages/Login/login";
 import { saveUser } from "./Redux/catch-token";
 import { StoreType } from "./Redux/store";
 import UploadItem from "./Pages/AddNewItem/AddNewItem";
+import Orders from "./Pages/Orders/Orders";
 
 function App() {
   const auth = getAuth();
@@ -41,6 +42,7 @@ function App() {
               <Route path="/adress" element={<Adress />} />
               <Route path="/card" element={<CardId />} />
               <Route path="/upload" element={<UploadItem />} />
+              <Route path="/orders" element={<Orders />} />
             </>
           )}
 

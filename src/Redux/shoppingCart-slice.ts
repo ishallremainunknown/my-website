@@ -61,6 +61,11 @@ export const ShoppingCartSlice = createSlice({
       const final = Math.abs(sum);
       state.numberOfAddedItems = final;
     },
+    clearCart: (state) => {
+      state.numberOfAddedItems = 0;
+
+      state.itemList = [];
+    },
 
     deleteItem: (state, action: PayloadAction<CartItem>) => {
       const deleteItem = action.payload;
@@ -102,6 +107,14 @@ export const ShoppingCartSlice = createSlice({
     },
   },
 });
-export const { addItemToCart, deleteItem, getItemsFromCart, addPrices, addCountySlice, decreaseQuantity, increase } =
-  ShoppingCartSlice.actions;
+export const {
+  addItemToCart,
+  deleteItem,
+  getItemsFromCart,
+  addPrices,
+  addCountySlice,
+  decreaseQuantity,
+  increase,
+  clearCart,
+} = ShoppingCartSlice.actions;
 export default ShoppingCartSlice.reducer;

@@ -2,6 +2,7 @@ import { CartItem } from "../../../Redux/shoppingCart-slice";
 import { County } from "./CountyType";
 
 export type PlacedOrder = {
+  id?: string;
   userInfo: {
     counties: string;
     name: string;
@@ -14,6 +15,7 @@ export type PlacedOrder = {
     block: string;
     apartment: string;
     postalCode: string;
+    payment: string;
   };
   order: CartItem[];
 };

@@ -16,6 +16,9 @@ const Navbar = () => {
     navigate("/upload");
   };
 
+  const orders = () => {
+    navigate("/orders");
+  };
   //console.log(numberOnCart);
 
   const handleLogout = () => {
@@ -50,6 +53,11 @@ const Navbar = () => {
         {token && (
           <button className={s.button} onClick={jumpTo}>
             Add new item
+          </button>
+        )}
+        {token && (
+          <button className={s.button} onClick={orders}>
+            New orders
           </button>
         )}
       </div>

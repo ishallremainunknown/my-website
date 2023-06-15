@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.orderBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  /* margin-left: 50px; */
+  height: 200px;
+  width: 600px;
+  background-color: #f9f5ed;
+  padding: 20px 20px 20px 20px;
+}
+.title {
+  font-size: 32px;
+}

@@ -9,12 +9,16 @@ import { StoreType } from "../../Redux/store";
 import { Counties } from "../../Components/Core/Constants/Counties";
 import { useNavigate } from "react-router-dom";
 import { CartItem } from "../../Redux/shoppingCart-slice";
+import { deleteItem } from "../../Redux/shoppingCart-slice";
 
 import useFirebaseWeb from "../../Hooks/useFirebaseCounties";
 import useFirebaseOrders from "../../Hooks/useFirebaseOrders";
 import { PlacedOrder } from "../../Components/Core/Types/OrderType";
+import { clearCart } from "../../Redux/shoppingCart-slice";
+
 const Adress = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { getCounties, addCounty } = useFirebaseWeb();
 
@@ -33,17 +37,19 @@ const Adress = () => {
   const [apartment, setApartment] = useState<string>("");
   const [postalCode, setPostalCode] = useState<string>("");
   const [selectedCounty, setSelectedCounty] = useState<string>("");
+  const [selectedPayment, setSelectedPayment] = useState<string>("");
 
   const stateItemList = useSelector((state: StoreType) => state.additem.itemList);
+  const stateCartNumber = useSelector((state: StoreType) => state.additem.numberOfAddedItems);
 
   useEffect(() => {
     getDropdownCounties();
   }, []);
-  const addAllCounties = async () => {
-    Counties.forEach((county) => {
-      addCounty(county);
-    });
-  };
+  // const addAllCounties = async () => {
+  //   Counties.forEach((county) => {
+  //     addCounty(county);
+  //   });
+  // };
 
   const getDropdownCounties = async () => {
     const allCounties = await getCounties();
@@ -63,7 +69,8 @@ const Adress = () => {
       number === "" ||
       block === "" ||
       apartment === "" ||
-      postalCode === ""
+      postalCode === "" ||
+      selectedPayment === ""
     ) {
       alert("please fill in all the inputs!");
     } else {
@@ -80,14 +87,17 @@ const Adress = () => {
           block: block,
           apartment: apartment,
           postalCode: postalCode,
+          payment: selectedPayment,
         },
         order: stateItemList,
       };
+      console.log(selectedPayment);
 
       await uploadOrder(NewOrder);
 
       navigate("/card");
       resetInputs();
+      dispatch(clearCart());
     }
   };
   const resetInputs = () => {
@@ -102,6 +112,7 @@ const Adress = () => {
     setApartment("");
     setPostalCode("");
     setSelectedCounty("");
+    setSelectedPayment("");
   };
 
   return (
@@ -221,12 +232,28 @@ const Adress = () => {
           <fieldset>
             <legend>Select type of payment</legend>
             <div className={s.first}>
-              <input type="radio" id="cash" name="drone" value="cash" />
+              <input
+                type="radio"
+                id="cash"
+                name="drone"
+                value="cash"
+                onChange={(e) => {
+                  setSelectedPayment(e.target.value);
+                }}
+              />
 
               <label>Cash</label>
             </div>
             <div>
-              <input type="radio" id="card" name="drone" value="card" />
+              <input
+                type="radio"
+                id="card"
+                name="drone"
+                value="card"
+                onChange={(e) => {
+                  setSelectedPayment(e.target.value);
+                }}
+              />
 
               <label>Card</label>
             </div>
