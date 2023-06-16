@@ -11,7 +11,7 @@ const useFirebaseOrders = () => {
 
   const getOrders = async () => {
     const orderCollectionRef = collection(db, "orders");
-    const q = query(orderCollectionRef, orderBy("userInfo", "asc"));
+    const q = query(orderCollectionRef, orderBy("date", "asc"));
     const data = await getDocs(q);
     const filteredData = data.docs.map((doc) => ({
       ...doc.data(),

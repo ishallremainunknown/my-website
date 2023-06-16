@@ -18,4 +18,5 @@ export type PlacedOrder = {
     payment: string;
   };
   order: CartItem[];
+  date: string;
 };

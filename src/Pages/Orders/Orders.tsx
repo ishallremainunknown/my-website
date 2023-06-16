@@ -18,6 +18,14 @@ const Orders = () => {
     setAllOrders(everyOrder);
   };
 
+  allOrders.map((order) => {
+    const orderName = order.order.map((oneOrder) => {
+      return oneOrder.item.productname;
+    });
+    console.log(orderName);
+    return orderName;
+  });
+
   return (
     <div className={s.main}>
       <h1 className={s.title}>Here's every order you received</h1>
@@ -25,6 +33,25 @@ const Orders = () => {
         <div key={index} className={s.orderBox}>
           <div> Customer: {order.userInfo.name + " " + order.userInfo.surName} </div>
           <div> Number of items: {order.order.length}</div>
+          <div className={s.orderNames}>
+            Item:
+            {allOrders.map((oneOrder) => {
+              if (oneOrder.id === order.id) {
+                const orderNames = oneOrder.order.map((placedOrder) => {
+                  return placedOrder.item.productname;
+                });
+                console.log(orderNames);
+                return (
+                  <>
+                    {" "}
+                    {orderNames.map((orderName) => {
+                      return <li>{orderName}</li>;
+                    })}{" "}
+                  </>
+                );
+              }
+            })}
+          </div>
           <div> Type of payment: {order.userInfo.payment}</div>
           <div> Email: {order.userInfo.email}</div>
         </div>

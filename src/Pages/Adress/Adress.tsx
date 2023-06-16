@@ -56,7 +56,7 @@ const Adress = () => {
 
     setCounties(allCounties);
 
-    console.log(allCounties);
+    // console.log(allCounties);
   };
   const toNext = async () => {
     if (
@@ -90,8 +90,8 @@ const Adress = () => {
           payment: selectedPayment,
         },
         order: stateItemList,
+        date: new Date().toUTCString(),
       };
-      console.log(selectedPayment);
 
       await uploadOrder(NewOrder);
 
@@ -100,6 +100,7 @@ const Adress = () => {
       dispatch(clearCart());
     }
   };
+
   const resetInputs = () => {
     setName("");
     setSurName("");
@@ -263,6 +264,7 @@ const Adress = () => {
           className={s.nextButton}
           onClick={() => {
             toNext();
+            // createDate();
           }}
         >
           Next
